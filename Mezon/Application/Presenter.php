@@ -108,6 +108,7 @@ class Presenter extends AbstractPresenter
      *
      * @param string $url
      * @codeCoverageIgnore
+     * @deprecated Since 2021-01-24 Use mezon/infrastructure-layer
      */
     public function redirectTo(string $url): void
     {
