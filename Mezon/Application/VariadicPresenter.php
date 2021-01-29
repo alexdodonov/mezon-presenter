@@ -59,7 +59,7 @@ class VariadicPresenter extends Presenter
         ?ViewInterface $view = null,
         string $presenterName = '',
         ?RequestParams $requestParams = null,
-        ?Presenter $presenter = null)
+        ?PresenterInterface $presenter = null)
     {
         parent::__construct($view, $presenterName, $requestParams);
 
