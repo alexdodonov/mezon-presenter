@@ -52,7 +52,7 @@ class VariadicPresenter extends Presenter
      *            name of the presenter
      * @param RequestParams $requestParams
      *            request parameters
-     * @param Presenter $presenter
+     * @param PresenterInterface $presenter
      *            presenter
      */
     public function __construct(
