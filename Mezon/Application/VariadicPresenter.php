@@ -23,6 +23,27 @@ class VariadicPresenter extends Presenter
     // TODO use AbstractPresenter instead of Presenter
 
     /**
+     * Config key to read settings
+     *
+     * @var string
+     */
+    protected $configKey = 'variadic-presenter-config-key';
+
+    /**
+     * Local presenter class name
+     *
+     * @var string
+     */
+    protected $localPresenter = Presenter::class;
+
+    /**
+     * Remote presenter class name
+     *
+     * @var string
+     */
+    protected $remotePresenter = Presenter::class;
+
+    /**
      * Constructor
      *
      * @param ViewInterface $view
@@ -43,10 +64,10 @@ class VariadicPresenter extends Presenter
         parent::__construct($view, $presenterName, $requestParams);
 
         $this->setupRealPresenter(
-            'variadic-presenter-config-key',
+            $this->configKey,
             $presenter,
-            Presenter::class,
-            Presenter::class,
+            $this->localPresenter,
+            $this->remotePresenter,
             [
                 $view,
                 $presenterName,

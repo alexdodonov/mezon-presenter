@@ -15,29 +15,23 @@ class TestingVariadicPresenter extends VariadicPresenter
 {
 
     /**
-     * Constructor
+     * Config key to read presenter settings
      *
-     * @param ViewInterface $view
-     *            view
-     * @param string $presenterName
-     *            name of the presenter
-     * @param RequestParams $requestParams
-     *            request parameters
-     * @param Presenter $presenter
-     *            presenter
+     * @var string
      */
-    public function __construct(
-        ?ViewInterface $view = null,
-        string $presenterName = '',
-        ?RequestParams $requestParams = null,
-        ?Presenter $presenter = null)
-    {
-        parent::__construct();
+    protected $configKey = 'testing-variadic-presenter';
 
-        $this->setupRealPresenter(
-            'testing-variadic-presenter',
-            $presenter,
-            Presenter::class,
-            TestingPresenter::class);
-    }
+    /**
+     * Local presenter class name
+     *
+     * @var string
+     */
+    protected $localPresenter = Presenter::class;
+
+    /**
+     * Remote presenter class name
+     *
+     * @var string
+     */
+    protected $remotePresenter = TestingPresenter::class;
 }
