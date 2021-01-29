@@ -16,7 +16,8 @@
 	"require": {
 		"php": ">=7.2.0",
 		"mezon/http-request-params": "1.0.*",
-		"mezon/view": "1.0.*"
+		"mezon/view": "1.0.*",
+		"mezon/infrastructure-layer": "1.0.*"
 	},
 	"support": {
 		"email": "alexey@dodonov.pro",
@@ -32,6 +33,7 @@
 		}
 	},
 	"scripts": {
-		"test": "php ./vendor/phpunit/phpunit/phpunit"
+		"test": "php ./vendor/phpunit/phpunit/phpunit --testsuite all",
+		"test-unit": "php ./vendor/phpunit/phpunit/phpunit --testsuite unit"
 	}
 }
