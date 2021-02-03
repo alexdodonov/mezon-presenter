@@ -17,10 +17,11 @@ use Mezon\Transport\RequestParams;
 /**
  * Base class for all controllers
  */
-class VariadicPresenter extends Presenter
+class VariadicPresenter extends AbstractPresenter
 {
 
-    // TODO use AbstractPresenter instead of Presenter
+    // TODO use PresenterInterface because we do not need AbstractPresenter::$presenterName,
+    // AbstractPresenter::$view and so on. All this data is stored in VariadicPresenter::$realPresenter
 
     /**
      * Config key to read settings
@@ -85,9 +86,9 @@ class VariadicPresenter extends Presenter
     /**
      * Method sets real presenter
      *
-     * @param Presenter $presenter
+     * @param PresenterInterface $presenter
      */
-    public function setRealPresenter(Presenter $presenter): void
+    public function setRealPresenter(PresenterInterface $presenter): void
     {
         $this->realPresenter = $presenter;
     }
@@ -95,9 +96,9 @@ class VariadicPresenter extends Presenter
     /**
      * Method returns real presenter
      *
-     * @return Presenter|NULL real presenter
+     * @return PresenterInterface|NULL real presenter
      */
-    public function getRealPresenter(): ?Presenter
+    public function getRealPresenter(): ?PresenterInterface
     {
         return $this->realPresenter;
     }
@@ -180,5 +181,15 @@ class VariadicPresenter extends Presenter
     public function setErrorMessage(string $errorMessage): void
     {
         $this->getRealPresenter()->setErrorMessage($errorMessage);
+    }
+
+    /**
+     *
+     * {@inheritdoc}
+     * @see \Mezon\Application\AbstractPresenter::run()
+     */
+    public function run(string $presenterName = '')
+    {
+        return $this->getRealPresenter()->run($presenterName);
     }
 }
