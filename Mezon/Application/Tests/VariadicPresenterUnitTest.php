@@ -100,19 +100,4 @@ class VariadicPresenterUnitTest extends TestCase
         // assertions
         $assertions($presenter);
     }
-
-    /**
-     * Testing 'run' method
-     */
-    public function testRun(): void
-    {
-        // setup
-        $presenter = new TestingVariadicPresenter(null, '', null, new TestingPresenter());
-
-        // test body
-        $result = $presenter->run('test');
-
-        // assertions
-        $this->assertEquals('computed content', $result);
-    }
 }
