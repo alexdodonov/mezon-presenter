@@ -181,4 +181,33 @@ class VariadicPresenter extends Presenter
     {
         $this->getRealPresenter()->setErrorMessage($errorMessage);
     }
+
+    /**
+     * Method runs controller
+     *
+     * @param
+     *            string PresenterName
+     *            Presenter name to be run
+     * @return mixed result of the controller
+     */
+    public function run(string $presenterName = '')
+    {
+        if ($presenterName === '') {
+            $presenterName = $this->getPresenterName();
+        }
+
+        if ($presenterName === '') {
+            $presenterName = 'Default';
+        }
+
+        if (method_exists($this->getRealPresenter(), 'presenter' . $presenterName)) {
+            return call_user_func([
+                $this->getRealPresenter(),
+                'presenter' . $presenterName
+            ]);
+        }
+
+        throw (new \Exception(
+            'Presenter ' . $presenterName . ' was not found in the class ' . get_class($this->getRealPresenter())));
+    }
 }

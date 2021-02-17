@@ -27,9 +27,9 @@ class TestingPresenter extends Presenter
     {
         $this->wasCalled = true;
     }
-    
+
     public static $actionPresenterFromConfigWasCalled = false;
-    
+
     public function presenterFromConfig(): void
     {
         TestingPresenter::$actionPresenterFromConfigWasCalled = true;
