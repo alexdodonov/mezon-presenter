@@ -116,7 +116,7 @@ class VariadicPresenter extends Presenter
      * @param array $constructorParameters
      *            constructor parameters
      */
-    protected function setupRealPresenter(
+    private function setupRealPresenter(
         string $configKey,
         ?Presenter $presenter,
         string $localPresenterClassName,
@@ -125,11 +125,7 @@ class VariadicPresenter extends Presenter
     {
         $presenterSetting = Conf::getConfigValue($configKey, 'local');
 
-        list ($view, $presenterName, $requestParams) = empty($constructorParameters) ? [
-            null,
-            '',
-            null
-        ] : $constructorParameters;
+        list ($view, $presenterName, $requestParams) = $constructorParameters;
 
         if ($presenter !== null) {
             $this->setRealPresenter($presenter);
