@@ -57,10 +57,13 @@ abstract class AbstractPresenter implements PresenterInterface
      *
      * @param ?ViewInterface $view
      *            view object
+     * @param string $presenterName
+     *            name of the presenter
      */
-    public function __construct(?ViewInterface $view = null)
+    public function __construct(?ViewInterface $view = null, string $presenterName = '')
     {
         $this->view = $view;
+        $this->presenterName = $presenterName;
     }
 
     /**

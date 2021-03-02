@@ -42,9 +42,7 @@ class Presenter extends AbstractPresenter
         string $presenterName = '',
         ?RequestParams $requestParams = null)
     {
-        parent::__construct($view);
-
-        $this->setPresenterName($presenterName);
+        parent::__construct($view, $presenterName);
 
         $this->requestParams = $requestParams;
     }

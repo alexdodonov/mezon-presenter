@@ -17,10 +17,8 @@ use Mezon\Transport\RequestParams;
 /**
  * Base class for all controllers
  */
-class VariadicPresenter extends Presenter
+class VariadicPresenter extends AbstractPresenter
 {
-
-    // TODO use AbstractPresenter instead of Presenter
 
     /**
      * Config key to read settings
@@ -78,16 +76,16 @@ class VariadicPresenter extends Presenter
     /**
      * Real presenter
      *
-     * @var Presenter
+     * @var AbstractPresenter
      */
     private $realPresenter = null;
 
     /**
      * Method sets real presenter
      *
-     * @param Presenter $presenter
+     * @param AbstractPresenter $presenter
      */
-    public function setRealPresenter(Presenter $presenter): void
+    public function setRealPresenter(AbstractPresenter $presenter): void
     {
         $this->realPresenter = $presenter;
     }
@@ -95,9 +93,9 @@ class VariadicPresenter extends Presenter
     /**
      * Method returns real presenter
      *
-     * @return Presenter|NULL real presenter
+     * @return AbstractPresenter|NULL real presenter
      */
-    public function getRealPresenter(): ?Presenter
+    public function getRealPresenter(): ?AbstractPresenter
     {
         return $this->realPresenter;
     }
