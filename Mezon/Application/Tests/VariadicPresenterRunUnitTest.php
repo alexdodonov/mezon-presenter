@@ -4,6 +4,7 @@ namespace Mezon\Application\Tests;
 use PHPUnit\Framework\TestCase;
 use Mezon\Conf\Conf;
 
+/** @psalm-suppress PropertyNotSetInConstructor */
 class VariadicPresenterRunUnitTest extends TestCase
 {
 

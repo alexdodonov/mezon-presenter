@@ -79,7 +79,7 @@ abstract class AbstractPresenter implements PresenterInterface
     /**
      * Method returns presenter's name
      *
-     * @return string presenter's name
+     * @param string $presenterName presenter's name
      */
     public function setPresenterName(string $presenterName): void
     {
