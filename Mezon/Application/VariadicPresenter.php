@@ -200,7 +200,12 @@ class VariadicPresenter extends Presenter
             $presenterName = 'Default';
         }
 
-        if (method_exists($this->getRealPresenter(), 'presenter' . $presenterName)) {
+        if (method_exists($this, 'presenter' . $presenterName)) {
+            return call_user_func([
+                $this,
+                'presenter' . $presenterName
+            ]);
+        } elseif (method_exists($this->getRealPresenter(), 'presenter' . $presenterName)) {
             return call_user_func([
                 $this->getRealPresenter(),
                 'presenter' . $presenterName
@@ -208,6 +213,7 @@ class VariadicPresenter extends Presenter
         }
 
         throw (new \Exception(
-            'Presenter ' . $presenterName . ' was not found in the class ' . get_class($this->getRealPresenter())));
+            'Presenter ' . $presenterName . ' was not found neither in the class ' . get_class($this) .
+            ' nor in the class' . get_class($this->getRealPresenter())));
     }
 }

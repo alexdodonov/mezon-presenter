@@ -1,10 +1,12 @@
 <?php
-namespace Mezon\Application\Tests;
+namespace Mezon\Application\Tests\Variadic;
 
 use PHPUnit\Framework\TestCase;
 use Mezon\Conf\Conf;
+use Mezon\Application\Tests\TestingPresenter;
+use Mezon\Application\Tests\TestingPresenter2;
 
-class VariadicPresenterRunUnitTest extends TestCase
+class RunUnitTest extends TestCase
 {
 
     /**
