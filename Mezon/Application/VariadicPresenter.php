@@ -136,13 +136,22 @@ class VariadicPresenter extends Presenter
         ] : $constructorParameters;
 
         if ($presenter !== null) {
-            $this->setRealPresenter($presenter);
+            // nop
         } elseif ($presenterSetting === 'local') {
-            $this->setRealPresenter(new $localPresenterClassName($view, $presenterName, $requestParams));
+            $presenter = new $localPresenterClassName($view, $presenterName, $requestParams);
         } elseif ($presenterSetting === 'remote') {
-            $this->setRealPresenter(new $remotePresenterClassName($view, $presenterName, $requestParams));
+            $presenter = new $remotePresenterClassName($view, $presenterName, $requestParams);
         } else {
-            $this->setRealPresenter(new $presenterSetting($view, $presenterName, $requestParams));
+            $presenter = new $presenterSetting($view, $presenterName, $requestParams);
+        }
+
+        if ($presenter instanceof Presenter) {
+            $this->setRealPresenter($presenter);
+        } else {
+            throw (new \Exception(
+                'Instance of the class "Presenter" must be used. Instance of the "' . get_class($presenter) .
+                '" was passed',
+                - 1));
         }
     }
 

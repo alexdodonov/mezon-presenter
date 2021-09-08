@@ -5,10 +5,10 @@ use Mezon\Transport\HttpRequestParams;
 use Mezon\Router\Router;
 use Mezon\HtmlTemplate\HtmlTemplate;
 use Mezon\Application\ViewInterface;
-use Mezon\Application\View;
 use Mezon\Application\AbstractPresenter;
+use PHPUnit\Framework\TestCase;
 
-class PresenterUnitTest extends \PHPUnit\Framework\TestCase
+class PresenterUnitTest extends TestCase
 {
 
     /**
