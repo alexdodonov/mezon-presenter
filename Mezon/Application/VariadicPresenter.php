@@ -78,7 +78,7 @@ class VariadicPresenter extends Presenter
     /**
      * Real presenter
      *
-     * @var Presenter
+     * @var ?Presenter
      */
     private $realPresenter = null;
 
@@ -95,10 +95,14 @@ class VariadicPresenter extends Presenter
     /**
      * Method returns real presenter
      *
-     * @return Presenter|NULL real presenter
+     * @return Presenter real presenter
      */
-    public function getRealPresenter(): ?Presenter
+    public function getRealPresenter(): Presenter
     {
+        if ($this->realPresenter === null) {
+            throw (new \Exception('Real presenter was not setup', - 1));
+        }
+
         return $this->realPresenter;
     }
 
