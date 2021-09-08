@@ -3,8 +3,6 @@ namespace Mezon\Application\Tests\Variadic;
 
 use Mezon\Application\VariadicPresenter;
 use Mezon\Application\Presenter;
-use Mezon\Transport\RequestParams;
-use Mezon\Application\ViewInterface;
 use Mezon\Application\Tests\TestingPresenter;
 
 /**

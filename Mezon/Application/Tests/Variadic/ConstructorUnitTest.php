@@ -86,4 +86,19 @@ class ConstructorUnitTest extends TestCase
         // assertions
         $assertions($presenter);
     }
+
+    /**
+     * Testing exception when unexpected presenter type was passed
+     */
+    public function testExceptionForUnexpectedPresenterType(): void
+    {
+        // assertions
+        $this->expectException(\Exception::class);
+
+        // setup
+        Conf::setConfigValue('variadic-presenter-config-key', \stdClass::class);
+
+        // test body
+        new VariadicPresenter();
+    }
 }
