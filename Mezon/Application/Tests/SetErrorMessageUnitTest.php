@@ -3,6 +3,7 @@ namespace Mezon\Application\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Mezon\Application\VariadicPresenter;
+use Mezon\Conf\Conf;
 
 class SetErrorMessageUnitTest extends TestCase
 {
@@ -13,6 +14,7 @@ class SetErrorMessageUnitTest extends TestCase
     public function testSetErroMessage(): void
     {
         // setup
+        Conf::setConfigValue('variadic-presenter-config-key', 'local');
         $presenter = new VariadicPresenter();
 
         // test body
