@@ -34,10 +34,15 @@ class TestingVariadicPresenter extends VariadicPresenter
      */
     protected $remotePresenter = TestingPresenter::class;
 
-    public $wasCalled = false;
+    /**
+     * Flag was presenter executed
+     *
+     * @var boolean
+     */
+    public static $wasCalled = false;
 
     public function presenterResult2(): void
     {
-        $this->wasCalled = true;
+        self::$wasCalled = true;
     }
 }

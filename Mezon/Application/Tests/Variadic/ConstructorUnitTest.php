@@ -7,6 +7,10 @@ use Mezon\Conf\Conf;
 use Mezon\Application\Presenter;
 use Mezon\Application\Tests\TestingPresenter;
 
+/**
+ * 
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class ConstructorUnitTest extends TestCase
 {
 

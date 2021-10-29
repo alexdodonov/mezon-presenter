@@ -11,10 +11,15 @@ use Mezon\Application\Presenter;
 class TestingPresenter2 extends Presenter
 {
 
-    public $defaultWasCalled = false;
+    /**
+     * Flag was presenter called
+     *
+     * @var boolean
+     */
+    public static $defaultWasCalled = false;
 
     public function presenterDefault(): void
     {
-        $this->defaultWasCalled = true;
+        self::$defaultWasCalled = true;
     }
 }

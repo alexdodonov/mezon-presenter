@@ -21,13 +21,23 @@ class TestingPresenter extends Presenter
         return 'computed content 2';
     }
 
-    public $wasCalled = false;
+    /**
+     * Flag was presenter called
+     *
+     * @var boolean
+     */
+    public static $wasCalled = false;
 
     public function presenterResult(): void
     {
-        $this->wasCalled = true;
+        self::$wasCalled = true;
     }
 
+    /**
+     * Was presenter called
+     * 
+     * @var boolean
+     */
     public static $actionPresenterFromConfigWasCalled = false;
 
     public function presenterFromConfig(): void

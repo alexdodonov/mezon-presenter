@@ -5,6 +5,10 @@ use PHPUnit\Framework\TestCase;
 use Mezon\Application\VariadicPresenter;
 use Mezon\Conf\Conf;
 
+/**
+ *
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class SetRealPresenterUnitTest extends TestCase
 {
 

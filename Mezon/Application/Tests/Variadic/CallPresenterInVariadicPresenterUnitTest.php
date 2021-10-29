@@ -5,6 +5,10 @@ use PHPUnit\Framework\TestCase;
 use Mezon\Conf\Conf;
 use Mezon\Application\Tests\TestingPresenter;
 
+/**
+ *
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class CallPresenterInVariadicPresenterUnitTest extends TestCase
 {
 
@@ -21,7 +25,7 @@ class CallPresenterInVariadicPresenterUnitTest extends TestCase
         $presenter->run();
 
         // assertions
-        $this->assertFalse($presenter->getRealPresenter()->wasCalled);
-        $this->assertTrue($presenter->wasCalled);
+        $this->assertFalse(TestingPresenter::$wasCalled);
+        $this->assertTrue(TestingVariadicPresenter::$wasCalled);
     }
 }

@@ -27,14 +27,14 @@ abstract class AbstractPresenter implements PresenterInterface
     /**
      * View object
      *
-     * @var ViewInterface
+     * @var ?ViewInterface
      */
     private $view = null;
 
     /**
      * Error code
      *
-     * @var integer
+     * @var int
      */
     private $errorCode = 0;
 
@@ -74,9 +74,7 @@ abstract class AbstractPresenter implements PresenterInterface
     }
 
     /**
-     * Method returns presenter's name
-     *
-     * @return string presenter's name
+     * Method sets presenter's name
      */
     public function setPresenterName(string $presenterName): void
     {

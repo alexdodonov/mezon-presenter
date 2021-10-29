@@ -21,9 +21,9 @@ class Presenter extends AbstractPresenter
 {
 
     /**
-     * Router
+     * Request params fetcher
      *
-     * @var RequestParams
+     * @var ?RequestParams
      */
     private $requestParams = null;
 
@@ -101,42 +101,5 @@ class Presenter extends AbstractPresenter
         }
 
         throw (new \Exception('Presenter ' . $presenterName . ' was not found in the class ' . get_class($this)));
-    }
-
-    /**
-     * Method redirects user to another page
-     *
-     * @param string $url
-     * @codeCoverageIgnore
-     * @deprecated Since 2021-01-24 Use mezon/infrastructure-layer
-     */
-    public function redirectTo(string $url): void
-    {
-        header("Location: $url");
-        exit(0);
-    }
-
-    /**
-     * Method builds route data
-     *
-     * @param string $route
-     *            route
-     * @param string $method
-     *            HTTP method
-     * @param string $function
-     *            controller's function name
-     * @return array built route data
-     * @deprecated Deprecated since 2020-08-28, use Application::buildRoute
-     */
-    public function buildRoute(string $route, string $method, string $function): array
-    {
-        return [
-            'route' => $route,
-            'method' => $method,
-            'callback' => [
-                $this,
-                $function
-            ]
-        ];
     }
 }

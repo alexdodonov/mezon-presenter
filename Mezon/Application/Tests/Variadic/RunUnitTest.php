@@ -6,7 +6,10 @@ use Mezon\Conf\Conf;
 use Mezon\Application\Tests\TestingPresenter;
 use Mezon\Application\Tests\TestingPresenter2;
 
-/** @psalm-suppress PropertyNotSetInConstructor */
+/**
+ *
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class RunUnitTest extends TestCase
 {
 
@@ -23,7 +26,7 @@ class RunUnitTest extends TestCase
         $presenter->run();
 
         // assertions
-        $this->assertTrue($presenter->getRealPresenter()->wasCalled);
+        $this->assertTrue(TestingPresenter::$wasCalled);
     }
 
     /**
@@ -39,7 +42,7 @@ class RunUnitTest extends TestCase
         $presenter->run('Result');
 
         // assertions
-        $this->assertTrue($presenter->getRealPresenter()->wasCalled);
+        $this->assertTrue(TestingPresenter::$wasCalled);
     }
 
     /**
@@ -55,7 +58,7 @@ class RunUnitTest extends TestCase
         $presenter->run();
 
         // assertions
-        $this->assertTrue($presenter->getRealPresenter()->defaultWasCalled);
+        $this->assertTrue(TestingPresenter2::$defaultWasCalled);
     }
 
     /**

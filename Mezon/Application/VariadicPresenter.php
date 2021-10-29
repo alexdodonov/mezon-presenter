@@ -111,7 +111,7 @@ class VariadicPresenter extends Presenter
      *
      * @param string $configKey
      *            config key
-     * @param ?Presenter $presenter
+     * @param ?PresenterInterface $presenter
      *            presneter object
      * @param string $localPresenterClassName
      *            local presenter class name
@@ -122,7 +122,7 @@ class VariadicPresenter extends Presenter
      */
     protected function setupRealPresenter(
         string $configKey,
-        ?Presenter $presenter,
+        ?PresenterInterface $presenter,
         string $localPresenterClassName,
         string $remotePresenterClassName,
         array $constructorParameters = []): void

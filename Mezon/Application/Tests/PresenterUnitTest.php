@@ -8,6 +8,10 @@ use Mezon\Application\ViewInterface;
 use Mezon\Application\AbstractPresenter;
 use PHPUnit\Framework\TestCase;
 
+/**
+ *
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class PresenterUnitTest extends TestCase
 {
 
@@ -47,24 +51,6 @@ class PresenterUnitTest extends TestCase
 
         // test bodyy
         $presenter->run();
-    }
-
-    /**
-     * Method tests buildRoute
-     */
-    public function testBuildRoute(): void
-    {
-        // setup
-        $presenter = new TestingPresenter(new TestingView());
-
-        // test body
-        $route = $presenter->buildRoute('/test/', 'POST', 'controllerTest');
-
-        // assertions
-        $this->assertEquals('/test/', $route['route']);
-        $this->assertEquals('POST', $route['method']);
-        $this->assertInstanceOf(TestingPresenter::class, $route['callback'][0]);
-        $this->assertEquals('controllerTest', $route['callback'][1]);
     }
 
     /**

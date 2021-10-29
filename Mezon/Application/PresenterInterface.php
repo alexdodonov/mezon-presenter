@@ -34,9 +34,7 @@ interface PresenterInterface
     public function getPresenterName(): string;
 
     /**
-     * Method returns presenter's name
-     *
-     * @return string presenter's name
+     * Method sets presenter's name
      */
     public function setPresenterName(string $presenterName): void;
 
@@ -82,7 +80,7 @@ interface PresenterInterface
      * @param bool $setTemplateVar
      *            do we need to set template parameter
      */
-    public function setViewParameter(string $name, $value, bool $setTemplateVar);
+    public function setViewParameter(string $name, $value, bool $setTemplateVar): void;
 
     /**
      * Method gets view's var
