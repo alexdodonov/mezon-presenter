@@ -19,6 +19,7 @@ class RunUnitTest extends TestCase
     public function testRunFromStoredPresenterName(): void
     {
         // setup
+        TestingPresenter::$wasCalled = false;
         Conf::setConfigValue('testing-variadic-presenter', new TestingPresenter());
         $presenter = new TestingVariadicPresenter(null, 'Result', null);
 
@@ -35,6 +36,7 @@ class RunUnitTest extends TestCase
     public function testRunFromPassedPresenterName(): void
     {
         // setup
+        TestingPresenter::$wasCalled = false;
         Conf::setConfigValue('testing-variadic-presenter', new TestingPresenter());
         $presenter = new TestingVariadicPresenter();
 
@@ -51,6 +53,7 @@ class RunUnitTest extends TestCase
     public function testRunFromDefaultPresenterName(): void
     {
         // setup
+        TestingPresenter2::$defaultWasCalled = false;
         Conf::setConfigValue('testing-variadic-presenter', new TestingPresenter2());
         $presenter = new TestingVariadicPresenter();
 

@@ -18,6 +18,8 @@ class CallPresenterInVariadicPresenterUnitTest extends TestCase
     public function testRunPresenterFromVariadic(): void
     {
         // setup
+        TestingPresenter::$wasCalled = false;
+        TestingVariadicPresenter::$wasCalled = false;
         Conf::setConfigValue('testing-variadic-presenter', new TestingPresenter());
         $presenter = new TestingVariadicPresenter(null, 'Result2', null);
 
