@@ -24,7 +24,7 @@ class TestingPresenter extends Presenter
     /**
      * Flag was presenter called
      *
-     * @var boolean
+     * @var bool
      */
     public static $wasCalled = false;
 
@@ -36,7 +36,7 @@ class TestingPresenter extends Presenter
     /**
      * Was presenter called
      * 
-     * @var boolean
+     * @var bool
      */
     public static $actionPresenterFromConfigWasCalled = false;
 

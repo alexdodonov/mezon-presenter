@@ -14,10 +14,13 @@ class TestingPresenter2 extends Presenter
     /**
      * Flag was presenter called
      *
-     * @var boolean
+     * @var bool
      */
     public static $defaultWasCalled = false;
 
+    /**
+     * Default presenter
+     */
     public function presenterDefault(): void
     {
         self::$defaultWasCalled = true;

@@ -27,7 +27,7 @@ class CallPresenterInVariadicPresenterUnitTest extends TestCase
         $presenter->run();
 
         // assertions
-        $this->assertFalse(TestingPresenter::$wasCalled);
-        $this->assertTrue(TestingVariadicPresenter::$wasCalled);
+        $this->assertEquals(false, TestingPresenter::$wasCalled);
+        $this->assertEquals(true, TestingVariadicPresenter::$wasCalled);
     }
 }

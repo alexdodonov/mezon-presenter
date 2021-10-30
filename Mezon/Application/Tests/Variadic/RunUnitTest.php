@@ -27,7 +27,7 @@ class RunUnitTest extends TestCase
         $presenter->run();
 
         // assertions
-        $this->assertTrue(TestingPresenter::$wasCalled);
+        $this->assertEquals(true, TestingPresenter::$wasCalled);
     }
 
     /**
@@ -44,7 +44,7 @@ class RunUnitTest extends TestCase
         $presenter->run('Result');
 
         // assertions
-        $this->assertTrue(TestingPresenter::$wasCalled);
+        $this->assertEquals(true, TestingPresenter::$wasCalled);
     }
 
     /**
@@ -61,7 +61,7 @@ class RunUnitTest extends TestCase
         $presenter->run();
 
         // assertions
-        $this->assertTrue(TestingPresenter2::$defaultWasCalled);
+        $this->assertEquals(true, TestingPresenter2::$defaultWasCalled);
     }
 
     /**
