@@ -127,7 +127,7 @@ class VariadicPresenter extends Presenter
         string $remotePresenterClassName,
         array $constructorParameters = []): void
     {
-        $presenterSetting = Conf::getConfigValue($configKey, 'local');
+        $presenterSetting = Conf::getValue($configKey, 'local');
 
         list ($view, $presenterName, $requestParams) = empty($constructorParameters) ? [
             null,
@@ -142,6 +142,7 @@ class VariadicPresenter extends Presenter
         } elseif ($presenterSetting === 'remote') {
             $presenter = new $remotePresenterClassName($view, $presenterName, $requestParams);
         } else {
+            /** @var class-string $presenterSetting */
             $presenter = new $presenterSetting($view, $presenterName, $requestParams);
         }
 
@@ -158,7 +159,7 @@ class VariadicPresenter extends Presenter
     /**
      *
      * {@inheritdoc}
-     * @see \Mezon\Application\AbstractPresenter::getErrorCode()
+     * @see AbstractPresenter::getErrorCode()
      */
     public function getErrorCode(): int
     {
@@ -178,7 +179,7 @@ class VariadicPresenter extends Presenter
     /**
      *
      * {@inheritdoc}
-     * @see \Mezon\Application\AbstractPresenter::getErrorMessage()
+     * @see AbstractPresenter::getErrorMessage()
      */
     public function getErrorMessage(): string
     {
@@ -188,7 +189,7 @@ class VariadicPresenter extends Presenter
     /**
      *
      * {@inheritdoc}
-     * @see \Mezon\Application\AbstractPresenter::setErrorMessage()
+     * @see AbstractPresenter::setErrorMessage()
      */
     public function setErrorMessage(string $errorMessage): void
     {
