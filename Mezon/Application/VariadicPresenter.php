@@ -3,6 +3,7 @@ namespace Mezon\Application;
 
 use Mezon\Conf\Conf;
 use Mezon\Transport\RequestParams;
+use Mezon\ViewInterface;
 
 /**
  * Class VariadicPresenter
