@@ -3,6 +3,7 @@ namespace Mezon\Application;
 
 use Mezon\Transport\RequestParamsInterface;
 use Mezon\Transport\RequestParams;
+use Mezon\ViewInterface;
 
 /**
  * Class Presenter

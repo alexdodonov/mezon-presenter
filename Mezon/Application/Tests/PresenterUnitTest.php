@@ -4,9 +4,10 @@ namespace Mezon\Application\Tests;
 use Mezon\Transport\HttpRequestParams;
 use Mezon\Router\Router;
 use Mezon\HtmlTemplate\HtmlTemplate;
-use Mezon\Application\ViewInterface;
+use Mezon\ViewInterface;
 use Mezon\Application\AbstractPresenter;
 use PHPUnit\Framework\TestCase;
+use Mezon\View\Tests\TestingView;
 
 /**
  *

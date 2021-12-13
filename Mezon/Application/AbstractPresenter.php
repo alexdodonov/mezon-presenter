@@ -1,6 +1,8 @@
 <?php
 namespace Mezon\Application;
 
+use Mezon\ViewInterface;
+
 /**
  * Interface PresenterInterface
  *
