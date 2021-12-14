@@ -1,5 +1,5 @@
 <?php
-namespace Mezon\Application\Tests;
+namespace Mezon\Application\Tests\Variadic;
 
 use PHPUnit\Framework\TestCase;
 use Mezon\Application\VariadicPresenter;
@@ -9,22 +9,22 @@ use Mezon\Conf\Conf;
  *
  * @psalm-suppress PropertyNotSetInConstructor
  */
-class SetErrorMessageUnitTest extends TestCase
+class SetRealPresenterUnitTest extends TestCase
 {
 
     /**
-     * Testing method setErrorMessage
+     * Testing method setRealPresenter
      */
-    public function testSetErroMessage(): void
+    public function testSetRealPresenter(): void
     {
         // setup
         Conf::setConfigValue('variadic-presenter-config-key', 'local');
         $presenter = new VariadicPresenter();
 
         // test body
-        $presenter->setErrorMessage('123');
+        $presenter->setRealPresenter($presenter);
 
         // assertions
-        $this->assertEquals('123', $presenter->getErrorMessage());
+        $this->assertInstanceOf(VariadicPresenter::class, $presenter->getRealPresenter());
     }
 }

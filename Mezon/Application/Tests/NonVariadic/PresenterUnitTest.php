@@ -1,13 +1,13 @@
 <?php
-namespace Mezon\Application\Tests;
+namespace Mezon\Application\Tests\NonVariadic;
 
 use Mezon\Transport\HttpRequestParams;
 use Mezon\Router\Router;
 use Mezon\HtmlTemplate\HtmlTemplate;
 use Mezon\ViewInterface;
-use Mezon\Application\AbstractPresenter;
 use PHPUnit\Framework\TestCase;
-use Mezon\View\Tests\TestingView;
+use Mezon\Application\Tests\TestingPresenter;
+use Mezon\Tests\TestingView;
 
 /**
  *
@@ -115,75 +115,5 @@ class PresenterUnitTest extends TestCase
         // assertions
         $this->assertEquals(11, $presenter->getErrorCode());
         $this->assertEquals('msg1', $presenter->getErrorMessage());
-    }
-
-    public function getSetMessagesDataProvider(): array
-    {
-        return [
-            [
-                new TestingPresenter()
-            ],
-            [
-                new TestingPresenter(new TestingView(new HtmlTemplate(__DIR__ . '/Res/', 'index')))
-            ]
-        ];
-    }
-
-    /**
-     * Testing get/set method
-     *
-     * @dataProvider getSetMessagesDataProvider
-     */
-    public function testGetSetMessages(AbstractPresenter $presenter): void
-    {
-        // test body
-        $presenter->setErrorCode(12);
-        $presenter->setErrorMessage('msg2');
-        $presenter->setSuccessMessage('msg4');
-
-        // assertions
-        $this->assertEquals(12, $presenter->getErrorCode());
-        $this->assertEquals('msg2', $presenter->getErrorMessage());
-        $this->assertEquals('msg4', $presenter->getSuccessMessage());
-    }
-
-    /**
-     * Data provider for the test testSetViewParameter
-     *
-     * @return array
-     */
-    public function setViewParemeterDataProvider(): array
-    {
-        return [
-            [
-                new TestingView(new HtmlTemplate(__DIR__ . '/Res/', 'index')),
-                'val'
-            ],
-            [
-                null,
-                null
-            ]
-        ];
-    }
-
-    /**
-     * Testing method setViewParameter
-     *
-     * @param
-     *            ?ViewInterface View
-     * @param mixed $var
-     *            expected variable name
-     * @dataProvider setViewParemeterDataProvider
-     */
-    public function testSetViewParameter(?ViewInterface $view, $var): void
-    {
-        // setup
-        $presenter = new TestingPresenter($view);
-
-        // test body
-        $presenter->setViewParameter('var', 'val', true);
-
-        // assertions
-        $this->assertEquals($var, $presenter->getViewParameter('var'));
     }
 }

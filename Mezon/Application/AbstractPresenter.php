@@ -130,6 +130,7 @@ abstract class AbstractPresenter implements PresenterInterface
             $this->errorMessage = $errorMessage;
         } else {
             $this->view->setErrorMessage($errorMessage);
+            $this->view->setErrorMessageContent($errorMessage);
         }
     }
 
@@ -155,6 +156,7 @@ abstract class AbstractPresenter implements PresenterInterface
             $this->successMessage = $successMessage;
         } else {
             $this->view->setSuccessMessage($successMessage);
+            $this->view->setSuccessMessageContent($successMessage);
         }
     }
 
