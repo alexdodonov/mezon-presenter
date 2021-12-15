@@ -1,8 +1,6 @@
 <?php
 namespace Mezon\Application\Tests\NonVariadic;
 
-use Mezon\Transport\HttpRequestParams;
-use Mezon\Router\Router;
 use Mezon\HtmlTemplate\HtmlTemplate;
 use Mezon\ViewInterface;
 use PHPUnit\Framework\TestCase;
@@ -54,5 +52,20 @@ class SetViewParameterUnitTest extends TestCase
 
         // assertions
         $this->assertEquals($var, $presenter->getViewParameter('var'));
+    }
+
+    /**
+     * Testing method setViewParameter with default parameters
+     */
+    public function testSetViewParameterDEfault(): void
+    {
+        // setup
+        $presenter = new TestingPresenter(new TestingView(new TestingTemplate(__DIR__ . '/../Res/', 'index')));
+
+        // test body
+        $presenter->setViewParameter('var', 'val');
+
+        // assertions
+        $this->assertEquals('val', TestingTemplate::$publicVars['var']);
     }
 }

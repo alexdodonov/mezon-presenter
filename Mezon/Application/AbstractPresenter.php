@@ -121,8 +121,8 @@ abstract class AbstractPresenter implements PresenterInterface
     /**
      * Method sets last error description
      *
-     * @param
-     *            string last error description
+     * @param string $errorMessage
+     *            last error description
      */
     public function setErrorMessage(string $errorMessage): void
     {
@@ -130,6 +130,18 @@ abstract class AbstractPresenter implements PresenterInterface
             $this->errorMessage = $errorMessage;
         } else {
             $this->view->setErrorMessage($errorMessage);
+        }
+    }
+
+    /**
+     * Method sets last error message
+     *
+     * @param string $errorMessage
+     *            last error message
+     */
+    public function setErrorMessageContent(string $errorMessage): void
+    {
+        if ($this->view !== null) {
             $this->view->setErrorMessageContent($errorMessage);
         }
     }
@@ -147,7 +159,7 @@ abstract class AbstractPresenter implements PresenterInterface
     /**
      * Method sets success message
      *
-     * @param $message string
+     * @param $successMessage string
      *            message
      */
     public function setSuccessMessage(string $successMessage): void
@@ -156,6 +168,18 @@ abstract class AbstractPresenter implements PresenterInterface
             $this->successMessage = $successMessage;
         } else {
             $this->view->setSuccessMessage($successMessage);
+        }
+    }
+
+    /**
+     * Method sets success message content
+     *
+     * @param $successMessage string
+     *            message
+     */
+    public function setSuccessMessageContent(string $successMessage): void
+    {
+        if ($this->view !== null) {
             $this->view->setSuccessMessageContent($successMessage);
         }
     }
