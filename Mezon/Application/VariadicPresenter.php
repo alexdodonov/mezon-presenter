@@ -86,9 +86,9 @@ class VariadicPresenter extends Presenter
     /**
      * Method sets real presenter
      *
-     * @param Presenter $presenter
+     * @param ?Presenter $presenter
      */
-    public function setRealPresenter(Presenter $presenter): void
+    public function setRealPresenter(?Presenter $presenter): void
     {
         $this->realPresenter = $presenter;
     }
@@ -129,12 +129,13 @@ class VariadicPresenter extends Presenter
         array $constructorParameters = []): void
     {
         $presenterSetting = Conf::getValue($configKey, 'local');
-
+        // @codeCoverageIgnoreStart
         list ($view, $presenterName, $requestParams) = empty($constructorParameters) ? [
             null,
             '',
             null
         ] : $constructorParameters;
+        // @codeCoverageIgnoreEnd
 
         if ($presenter !== null) {
             // nop
